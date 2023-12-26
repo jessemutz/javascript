@@ -4,6 +4,7 @@
 function createRandomNumber(number) {
   return Math.ceil(Math.random() * number);
 }
+
 // Set variables
 const heading = document.getElementById("js-log");
 const role = document.getElementById("role");
