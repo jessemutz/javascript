@@ -3,8 +3,8 @@
 // @param playerSelection()
 // @param computerSelection()
 
+let choices = ["ROCK", "PAPER", "SCISSORS"];
 function getRandomChoice() {
-  let choices = ["ROCK", "PAPER", "SCISSORS"];
   let randomNumber = Math.floor(Math.random() * choices.length);
 
   return choices[randomNumber];
@@ -25,15 +25,18 @@ function determineWinner(playerSelection, computerSelection) {
 }
 
 function playGame() {
-  const playerSelection = prompt("Enter your choice.").toUpperCase();
-  const computerSelection = getRandomChoice();
+  let playerSelection = prompt("Enter your choice.").toUpperCase();
+  let computerSelection = getRandomChoice();
   const resultMessage = `Computer chose ${computerSelection}. You`;
 
-  const result = determineWinner(playerSelection, computerSelection);
-
-  alert(`${resultMessage} ${result}!`);
+  if (choices.indexOf(playerSelection) > -1) {
+    const result = determineWinner(playerSelection, computerSelection);
+    alert(`${resultMessage} ${result}!`);
+  } else {
+    alert(`You must make a selection. Type rock, paper, or scissors to play.`)
+  }
 }
 
 
 // Call the playGame function to start the game
-playGame();
+// playGame();
