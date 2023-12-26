@@ -29,6 +29,7 @@ function playGame() {
   let computerSelection = getRandomChoice();
   const resultMessage = `Computer chose ${computerSelection}. You`;
 
+  // Check if what was written is in the "choices" array.
   if (choices.indexOf(playerSelection) > -1) {
     const result = determineWinner(playerSelection, computerSelection);
     alert(`${resultMessage} ${result}!`);
