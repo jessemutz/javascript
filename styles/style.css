@@ -1,21 +1,51 @@
+html {
+  --brand-hue: 200;
+  --brand-saturation: 100%;
+  --brand-lightness: 50%;
+
+  --brand: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
+  --brand-dark: hsl(var(--brand-hue) var(--brand-saturation) calc(var(--brand-lightness) / 2));
+  --brand-darkest: hsl(var(--brand-hue) var(--brand-saturation) calc(var(--brand-lightness) / 8));
+
+
+  --brand-light: hsl(var(--brand-hue) var(--brand-saturation) calc(var(--brand-lightness) * 1.75));
+  --brand-lightest: hsl(var(--brand-hue) var(--brand-saturation) calc(var(--brand-lightness) * 1.9));
+}
+
 :root {
-  --font-base:system-ui, Tahoma, Geneva, Verdana, sans-serif;
+  --color-background: var(--brand-lightest);
+  --color-text: var(--brand-darkest);
+  --font-base: system-ui, Tahoma, Geneva, Verdana, sans-serif;
   --size-base: 1rem;
   --size-lg: calc(2 * var(--size-base));
   --size-xl: calc(3 * var(--size-base));
   --size-xxl: calc(5 * var(--size-base));
-  --light: #eaeaff;
-  --dark: #454577;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--brand-darkest);
+    --color-text: var(--brand-lightest);
+  }
+}
+
 body {
   font-family: var(--font-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.container {
+  width: min(80vw, 800px);
+  margin: 0 auto;
 }
 
 .main {
   padding: var(--size-lg);
-  margin: var(--size-xxl) auto;
-  width: min(600px, 60%);
+  margin: var(--size-xxl) auto var(--size-lg);
   border-radius: var(--size-base);
-  background-color: var(--light);
-  box-shadow: 0 2rem 2rem -2rem var(--dark);
+  background-color: var(--brand);
+  box-shadow: 0 1.5rem 2.5rem -1rem var(--brand-dark),
+    0 1rem 1rem -1rem var(--brand-dark);
+  color: var(--brand-darkest);
 }
